@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{ protocol_name }} ({{ ticker }}): Liquid Token One-Pager</title>
+<style>{{ font_css }}</style>
+<style>
+  html, body { margin: 0; padding: 0; }
+  * { box-sizing: border-box; }
+  body { font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, sans-serif; }
+  .lt-num { font-family: 'Montserrat', monospace; font-variant-numeric: tabular-nums; }
+  @page { size: letter; margin: 0; }
+  @media print {
+    .lt-desk { background:#fff !important; min-height:0 !important; padding:0 !important; display:block !important; }
+    .lt-page { box-shadow:none !important; border-radius:0 !important; -webkit-print-color-adjust:exact !important; print-color-adjust:exact !important; }
+  }
+</style>
+</head>
+<body>
+{# ---- reusable cell styles (keeps table loops readable) ---- #}
+{%- set sec_hd = "font-size:8.5px; font-weight:600; letter-spacing:1.8px; text-transform:uppercase; color:#191F98; border-bottom:1px solid #CCCCCC; padding-bottom:2px; margin-bottom:3px;" -%}
+{%- set sub_hd = "font-size:8px; font-weight:600; letter-spacing:1px; text-transform:uppercase; color:#4A5DB2;" -%}
+{%- set prose  = "font-size:10.5px; line-height:1.28; color:#444444; margin:0;" -%}
+{%- set th_st  = "text-align:right; font-size:8px; font-weight:600; color:#191F98; letter-spacing:.3px; text-transform:uppercase; border-bottom:1px solid #B6B6B6; padding:2px 5px 3px 0;" -%}
+{%- set td_lbl = "font-size:9.5px; color:#333333; padding:1.6px 5px 1.6px 0; border-bottom:1px solid #EDEDEF;" -%}
+{%- set td_num = "font-size:9px; color:#333333; text-align:right; padding:1.6px 5px 1.6px 0; border-bottom:1px solid #EDEDEF;" -%}
+{%- set td_numL = "font-size:9px; color:#333333; text-align:right; padding:1.6px 0 1.6px 0; border-bottom:1px solid #EDEDEF;" -%}
+
+<div class="lt-desk" style="background:#E5E7EE; min-height:100vh; box-sizing:border-box; padding:36px 16px; display:flex; justify-content:center;">
+  <div class="lt-page" style="width:816px; min-height:1056px; background:#fff; border-radius:2px; box-shadow:0 2px 16px rgba(31,31,96,.18); padding:40px 44px; color:#333333; box-sizing:border-box;">
+
+    <!-- masthead -->
+    <div style="display:flex; justify-content:space-between; align-items:flex-end; border-bottom:1px solid #E2E4EC; padding-bottom:8px;">
+      <div style="display:flex; flex-direction:column; gap:7px;">
+        <img src="{{ logo_src }}" alt="Reciprocal Ventures" width="146" height="24" style="width:146px; height:24px; flex:0 0 auto; align-self:flex-start; display:block;">
+        <div style="font-size:8.5px; letter-spacing:2.5px; color:#4A5DB2; text-transform:uppercase;">Digital Asset Research · Liquid Strategies</div>
+      </div>
+      <div style="text-align:right; font-size:9px; line-height:1.7; color:#757575;">
+        <div>DATE · <span style="color:#757575;">{{ date }}</span></div>
+        <div style="color:#C62828; font-weight:500; letter-spacing:1px;">CONFIDENTIAL · INTERNAL</div>
+      </div>
+    </div>
+
+    <!-- title + verdict -->
+    <div style="display:flex; justify-content:space-between; align-items:flex-end; margin-top:8px;">
+      <div>
+        <div style="font-size:22px; font-weight:700; letter-spacing:-0.5px; color:#1f1f60; line-height:1; white-space:nowrap;">{{ protocol_name }}</div>
+        <div style="font-size:12px; color:#4A5DB2; margin-top:6px; font-weight:500;">${{ ticker }} · {{ sector }}</div>
+      </div>
+      <div style="display:flex; align-items:center; gap:16px;">
+        <div style="text-align:right;">
+          <div style="font-size:8px; letter-spacing:1.5px; color:#8A8A8A; text-transform:uppercase; white-space:nowrap;">{{ horizon }} Base Case Target</div>
+          <div class="lt-num" style="font-size:19px; font-weight:600; color:#1f1f60; line-height:1.1;">{{ base_target }}</div>
+        </div>
+        <div class="lt-num" style="font-size:17px; font-weight:600; letter-spacing:2px; padding:7px 18px; border:2.5px solid {{ verdict_color }}; color:{{ verdict_color }};">{{ verdict }}</div>
+      </div>
+    </div>
+
+    <!-- conviction band -->
+    <div style="display:grid; grid-template-columns:repeat(6,1fr); border:1px solid #E2E4EC; border-radius:2px; margin-top:8px; background:#F7F8FB;">
+      {%- set band = [
+        ('Allocation', allocation), ('Notional', notional), ('Entry Tgt / Spot', entry),
+        ('Base MOIC', base_moic), ('Base IRR', base_irr), ('Horizon', horizon)
+      ] -%}
+      {%- for label, val in band %}
+      <div style="padding:6px 11px;{% if not loop.last %} border-right:1px solid #E2E4EC;{% endif %}">
+        <div style="font-size:7.5px; letter-spacing:1.2px; color:#8A8A8A; text-transform:uppercase;">{{ label }}</div>
+        <div class="lt-num" style="font-size:13px; font-weight:600; color:#1f1f60; margin-top:3px;">{{ val }}</div>
+      </div>
+      {%- endfor %}
+    </div>
+
+    <!-- two-col body -->
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:0 28px; margin-top:8px;">
+
+      <!-- left -->
+      <div>
+        <div style="margin-bottom:7px;">
+          <div style="{{ sec_hd }}">Thesis</div>
+          <p style="font-size:10.5px; line-height:1.3; color:#1f1f60; margin:0 0 3px; font-weight:500;">{{ thesis }}</p>
+          <ul style="padding-left:15px; margin:0;">
+            <li style="font-size:10.5px; line-height:1.28; margin-bottom:1px;"><strong style="color:#1f1f60;">Team:</strong> <span style="color:#444444;">{{ team }}</span></li>
+            <li style="font-size:10.5px; line-height:1.28; margin-bottom:1px;"><strong style="color:#1f1f60;">Market:</strong> <span style="color:#444444;">{{ market }}</span></li>
+            <li style="font-size:10.5px; line-height:1.28; margin-bottom:1px;"><strong style="color:#1f1f60;">Product:</strong> <span style="color:#444444;">{{ product }}</span></li>
+          </ul>
+        </div>
+
+        <div style="margin-bottom:7px;">
+          <div style="{{ sec_hd }}">Protocol Overview</div>
+          <p style="{{ prose }}">{{ overview }}</p>
+        </div>
+
+        <div style="margin-bottom:7px;">
+          <div style="{{ sec_hd }}">Management Team Overview</div>
+          <p style="{{ prose }}">{{ management }}</p>
+        </div>
+
+        <div style="margin-bottom:7px;">
+          <div style="{{ sec_hd }}">Catalysts &amp; Risks</div>
+          {# catalysts & risks: author each line to convey WHEN it lands and WHY it matters for the token #}
+          <div style="{{ sub_hd }} margin:3px 0 2px;">Catalysts</div>
+          <ul style="padding-left:15px; margin:0 0 5px;">
+            {%- for c in catalysts %}
+            <li style="font-size:10.5px; line-height:1.28; margin-bottom:1px; color:#444444;">{{ c }}</li>
+            {%- endfor %}
+          </ul>
+          <div style="{{ sub_hd }} margin:5px 0 2px;">Key Risks</div>
+          <ul style="padding-left:15px; margin:0;">
+            {%- for r in risks %}
+            <li style="font-size:10px; line-height:1.28; color:#444444; margin-bottom:1px;">{{ r }}</li>
+            {%- endfor %}
+          </ul>
+        </div>
+
+        {% if traction_chart %}
+        <div style="margin-bottom:7px;">
+          <div style="{{ sec_hd }}">{{ traction_title }}</div>
+          <img src="{{ traction_chart }}" alt="{{ traction_title }}, historical" style="width:100%; height:auto; display:block; margin-top:4px;">
+          <div style="font-size:7.5px; color:#8A8A8A; line-height:1.3; margin-top:2px;">{{ traction_caption }}</div>
+        </div>
+        {% endif %}
+
+        {% if projections_chart %}
+        <div style="margin-bottom:7px;">
+          <div style="{{ sec_hd }}">Financial Projections</div>
+          <img src="{{ projections_chart }}" alt="Base-case revenue and EBITDA projection" style="width:100%; height:auto; display:block; margin-top:4px;">
+          <div style="font-size:7.5px; color:#8A8A8A; line-height:1.3; margin-top:2px;">Base case ($mm). Revenue is the protocol's net take of fees; EBITDA applies the modeled EBITDA margin.</div>
+        </div>
+        {% endif %}
+
+        <div>
+          <div style="{{ sec_hd }}">Current Sentiment</div>
+          <p style="{{ prose }}">{{ sentiment }}</p>
+        </div>
+      </div>
+
+      <!-- right -->
+      <div>
+        <div style="margin-bottom:7px;">
+          <div style="{{ sec_hd }}">Token Economics</div>
+          <div style="{{ sub_hd }} margin:3px 0 2px;">Supply &amp; Dilution</div>
+          <div style="display:grid; grid-template-columns:1fr auto; gap:1px 10px; font-size:10px;">
+            <span style="color:#757575;">Max / Circ / %</span><span class="lt-num" style="color:#333333; text-align:right;">{{ supply }}</span>
+            <span style="color:#757575;">Insider unlocks {{ unlock_years }}</span><span class="lt-num" style="color:#333333; text-align:right;">{{ unlock_pct }}</span>
+            <span style="color:#757575;">Next unlock</span><span class="lt-num" style="color:#333333; text-align:right;">{{ next_unlock }}</span>
+          </div>
+          <div style="{{ sub_hd }} margin:6px 0 2px;">Value Capture</div>
+          <div style="display:grid; grid-template-columns:1fr auto; gap:1px 10px; font-size:10px;">
+            <span style="color:#757575;">Fee Switch</span><span class="lt-num" style="color:#333333; text-align:right;">{{ fee_switch }}</span>
+            <span style="color:#757575;">Token Rights</span><span class="lt-num" style="color:#333333; text-align:right;">{{ token_rights }}</span>
+            <span style="color:#757575;">Equity Capture</span><span class="lt-num" style="color:#333333; text-align:right;">{{ equity_capture }}</span>
+          </div>
+          <div style="{{ sub_hd }} margin:6px 0 2px;">Treasury &amp; Backing</div>
+          <div style="display:grid; grid-template-columns:1fr auto; gap:1px 10px; font-size:10px;">
+            <span style="color:#757575;">Total / Cash / Own token</span><span class="lt-num" style="color:#333333; text-align:right;">{{ treasury }}</span>
+          </div>
+        </div>
+
+        <div style="margin-bottom:7px;">
+          <div style="{{ sec_hd }}">Scenario Analysis</div>
+          <table style="width:100%; border-collapse:collapse;">
+            <thead><tr>
+              <th style="{{ th_st }} text-align:left; width:30%;">Scenario</th>
+              <th style="{{ th_st }}">Price</th>
+              <th style="{{ th_st }}">MOIC</th>
+              <th style="{{ th_st }}">IRR</th>
+              <th style="text-align:right; font-size:8px; font-weight:600; color:#191F98; letter-spacing:.3px; text-transform:uppercase; border-bottom:1px solid #B6B6B6; padding:2px 0 3px 0;">Prob</th>
+            </tr></thead>
+            <tbody>
+              {%- for s in scenarios %}
+              {%- set fw = '700' if s.get('highlight') else '400' %}
+              <tr{% if s.get('highlight') %} style="background:#F3F4F8;"{% endif %}>
+                <td style="font-weight:{{ fw }}; font-size:9.5px; padding:3px 5px 3px 0; border-bottom:1px solid #EDEDEF;">{{ s.name }}</td>
+                <td class="lt-num" style="font-weight:{{ fw }}; font-size:9px; color:#333333; text-align:right; padding:3px 5px; border-bottom:1px solid #EDEDEF;">{{ s.price }}</td>
+                <td class="lt-num" style="font-weight:{{ fw }}; font-size:9px; color:#333333; text-align:right; padding:3px 5px; border-bottom:1px solid #EDEDEF;">{{ s.moic }}</td>
+                <td class="lt-num" style="font-weight:{{ fw }}; font-size:9px; color:#333333; text-align:right; padding:3px 5px; border-bottom:1px solid #EDEDEF;">{{ s.irr }}</td>
+                <td class="lt-num" style="font-weight:{{ fw }}; font-size:9px; color:#333333; text-align:right; padding:3px 0; border-bottom:1px solid #EDEDEF;">{{ s.prob }}</td>
+              </tr>
+              {%- endfor %}
+              <tr>
+                <td style="font-weight:600; font-size:9.5px; padding:4px 5px 0 0; border-top:1.5px solid #B6B6B6;">Prob‑weighted</td>
+                <td class="lt-num" style="font-size:9px; color:#1f1f60; text-align:right; padding:4px 5px 0 0; border-top:1.5px solid #B6B6B6; font-weight:600;">{{ prob_weighted.price }}</td>
+                <td class="lt-num" style="font-size:9px; color:#1f1f60; text-align:right; padding:4px 5px 0 0; border-top:1.5px solid #B6B6B6; font-weight:600;">{{ prob_weighted.moic }}</td>
+                <td class="lt-num" style="font-size:9px; color:#1f1f60; text-align:right; padding:4px 5px 0 0; border-top:1.5px solid #B6B6B6; font-weight:600;">{{ prob_weighted.irr }}</td>
+                <td style="border-top:1.5px solid #B6B6B6;"></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div style="margin-bottom:7px;">
+          <div style="{{ sec_hd }}">Traction</div>
+          <table style="width:100%; border-collapse:collapse;">
+            <thead><tr>
+              <th style="{{ th_st }} text-align:left;">Metric</th>
+              <th style="{{ th_st }}">Current</th>
+              <th style="{{ th_st }}">30d Δ</th>
+              <th style="text-align:right; font-size:8px; font-weight:600; color:#191F98; letter-spacing:.3px; text-transform:uppercase; border-bottom:1px solid #B6B6B6; padding:2px 0 3px 0;">ATH Δ</th>
+            </tr></thead>
+            <tbody>
+              {%- for t in traction %}
+              <tr>
+                <td style="{{ td_lbl }}">{{ t.metric }}</td>
+                <td class="lt-num" style="{{ td_num }}">{{ t.current }}</td>
+                <td class="lt-num" style="{{ td_num }}">{{ t.d30 }}</td>
+                <td class="lt-num" style="{{ td_numL }}">{{ t.ath }}</td>
+              </tr>
+              {%- endfor %}
+            </tbody>
+          </table>
+        </div>
+
+        <div style="margin-bottom:7px;">
+          <div style="{{ sec_hd }}">Valuation Comps</div>
+          <table style="width:100%; border-collapse:collapse;">
+            <thead><tr>
+              <th style="{{ th_st }} text-align:left;">Protocol</th>
+              <th style="{{ th_st }}">Mcap</th>
+              <th style="{{ th_st }}">FDV</th>
+              {%- for col in comps_metrics %}
+              {%- if loop.last %}
+              <th style="text-align:right; font-size:8px; font-weight:600; color:#191F98; letter-spacing:.3px; text-transform:uppercase; border-bottom:1px solid #B6B6B6; padding:2px 0 3px 0;">FDV/{{ col }}</th>
+              {%- else %}
+              <th style="{{ th_st }}">FDV/{{ col }}</th>
+              {%- endif %}
+              {%- endfor %}
+            </tr></thead>
+            <tbody>
+              <tr style="background:#F3F4F8;">
+                <td style="font-weight:600; font-size:9.5px; padding:3px 5px 3px 0; border-bottom:1px solid #EDEDEF;">{{ comps_target.name }}</td>
+                <td class="lt-num" style="font-size:9px; color:#1f1f60; text-align:right; padding:3px 5px; border-bottom:1px solid #EDEDEF; font-weight:600;">{{ comps_target.mcap }}</td>
+                <td class="lt-num" style="font-size:9px; color:#1f1f60; text-align:right; padding:3px 5px; border-bottom:1px solid #EDEDEF; font-weight:600;">{{ comps_target.fdv }}</td>
+                {%- for r in comps_target.ratios %}
+                <td class="lt-num" style="font-size:9px; color:#1f1f60; text-align:right; padding:3px {% if loop.last %}0{% else %}5px{% endif %}; border-bottom:1px solid #EDEDEF; font-weight:600;">{{ r }}</td>
+                {%- endfor %}
+              </tr>
+              {%- for c in comps %}
+              <tr>
+                <td style="{{ td_lbl }}">{{ c.name }}</td>
+                <td class="lt-num" style="{{ td_num }}">{{ c.mcap }}</td>
+                <td class="lt-num" style="{{ td_num }}">{{ c.fdv }}</td>
+                {%- for r in c.ratios %}
+                <td class="lt-num" style="{% if loop.last %}{{ td_numL }}{% else %}{{ td_num }}{% endif %}">{{ r }}</td>
+                {%- endfor %}
+              </tr>
+              {%- endfor %}
+              <tr>
+                <td style="font-weight:600; font-size:9.5px; padding:4px 5px 0 0; border-top:1.5px solid #B6B6B6;">Avg.</td>
+                <td class="lt-num" style="font-size:9px; color:#333333; text-align:right; padding:4px 5px 0 0; border-top:1.5px solid #B6B6B6;">{{ comps_avg.mcap }}</td>
+                <td class="lt-num" style="font-size:9px; color:#333333; text-align:right; padding:4px 5px 0 0; border-top:1.5px solid #B6B6B6;">{{ comps_avg.fdv }}</td>
+                {%- for r in comps_avg.ratios %}
+                <td class="lt-num" style="font-size:9px; color:#333333; text-align:right; padding:4px {% if loop.last %}0{% else %}5px{% endif %} 0 0; border-top:1.5px solid #B6B6B6;">{{ r }}</td>
+                {%- endfor %}
+              </tr>
+            </tbody>
+          </table>
+          <div style="font-size:7.5px; color:#8A8A8A; line-height:1.35; margin-top:4px;">{{ comps_note }}</div>
+        </div>
+
+        <div>
+          <div style="{{ sec_hd }}">Technicals</div>
+          {% if price_chart %}
+          <img src="{{ price_chart }}" alt="{{ ticker }} price history" style="width:100%; height:auto; display:block; margin:3px 0 5px;">
+          {% endif %}
+          <table style="width:100%; border-collapse:collapse;">
+            <thead><tr>
+              <th style="{{ th_st }} text-align:left;">Project</th>
+              <th style="{{ th_st }}">Current</th>
+              <th style="{{ th_st }}">30d Δ</th>
+              <th style="text-align:right; font-size:8px; font-weight:600; color:#191F98; letter-spacing:.3px; text-transform:uppercase; border-bottom:1px solid #B6B6B6; padding:2px 0 3px 0;">ATH Δ</th>
+            </tr></thead>
+            <tbody>
+              {%- for t in technicals %}
+              {%- if t.name == comps_target.name %}
+              <tr style="background:#F3F4F8;">
+                <td style="font-weight:600; font-size:9.5px; padding:3px 5px 3px 0; border-bottom:1px solid #EDEDEF;">{{ t.name }}</td>
+                <td class="lt-num" style="font-size:9px; color:#1f1f60; text-align:right; padding:3px 5px 3px 0; border-bottom:1px solid #EDEDEF; font-weight:600;">{{ t.current }}</td>
+                <td class="lt-num" style="font-size:9px; color:#1f1f60; text-align:right; padding:3px 5px 3px 0; border-bottom:1px solid #EDEDEF; font-weight:600;">{{ t.d30 }}</td>
+                <td class="lt-num" style="font-size:9px; color:#1f1f60; text-align:right; padding:3px 0; border-bottom:1px solid #EDEDEF; font-weight:600;">{{ t.ath }}</td>
+              </tr>
+              {%- else %}
+              <tr>
+                <td style="{{ td_lbl }}">{{ t.name }}</td>
+                <td class="lt-num" style="{{ td_num }}">{{ t.current }}</td>
+                <td class="lt-num" style="{{ td_num }}">{{ t.d30 }}</td>
+                <td class="lt-num" style="{{ td_numL }}">{{ t.ath }}</td>
+              </tr>
+              {%- endif %}
+              {%- endfor %}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- footer -->
+    <div style="margin-top:8px; padding-top:6px; border-top:1.5px solid #1f1f60; display:flex; justify-content:space-between; align-items:center;">
+      <div style="font-size:8px; color:#8A8A8A; max-width:74%;">Internal use only. Data sourced from {{ data_sources }}. All figures as of {{ as_of_date }}.</div>
+      <div class="lt-num" style="font-size:8px; color:#A0A0A0;">recvc.com</div>
+    </div>
+
+  </div>
+</div>
+</body>
+</html>

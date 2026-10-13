@@ -1,0 +1,614 @@
+{
+  "_metadata": {
+    "description": "Centralized index mapping standardized names for protocols and equities to API-specific slugs",
+    "usage": "Use src/data/protocol_index.py functions to query this index",
+    "sections": {
+      "protocols": "Crypto protocols with DefiLlama, Messari, and Blockworks slugs",
+      "equities": "Public equities with Yahoo Finance ticker symbols"
+    }
+  },
+  "protocols": {
+    "hyperliquid": {
+      "display_name": "Hyperliquid",
+      "defillama_slug": "hyperliquid",
+      "messari_slug": "hyperliquid",
+      "blockworks_slug": "hyperliquid",
+      "category": "perps_dexs"
+    },
+    "lighter": {
+      "display_name": "Lighter",
+      "defillama_slug": "lighter",
+      "messari_slug": "lighter",
+      "blockworks_slug": "lighter",
+      "category": "perps_dexs"
+    },
+    "aster": {
+      "display_name": "Aster",
+      "defillama_slug": "aster",
+      "messari_slug": "aster-dex",
+      "category": "perps_dexs"
+    },
+    "drift": {
+      "display_name": "Drift",
+      "defillama_slug": "drift",
+      "messari_slug": "driftprotocol",
+      "category": "perps_dexs"
+    },
+    "dydx": {
+      "display_name": "dYdX",
+      "defillama_slug": "dydx",
+      "messari_slug": "dydx",
+      "category": "perps_dexs"
+    },
+    "jupiter": {
+      "display_name": "Jupiter",
+      "defillama_slug": "jupiter",
+      "messari_slug": "jupiter-exchange-solana",
+      "blockworks_slug": "jupiter",
+      "category": "perps_dexs"
+    },
+    "gmx": {
+      "display_name": "GMX",
+      "defillama_slug": "gmx",
+      "messari_slug": "gmx",
+      "category": "perps_dexs"
+    },
+    "apex-protocol": {
+      "display_name": "Apex Protocol",
+      "defillama_slug": "apex-protocol",
+      "messari_slug": "apex-protocol",
+      "category": "perps_dexs"
+    },
+    "ethereum": {
+      "display_name": "Ethereum",
+      "defillama_slug": "ethereum",
+      "messari_slug": "ethereum",
+      "blockworks_slug": "ethereum",
+      "category": "smart_contract_chains"
+    },
+    "solana": {
+      "display_name": "Solana",
+      "defillama_slug": "solana",
+      "messari_slug": "solana",
+      "blockworks_slug": "solana",
+      "category": "smart_contract_chains"
+    },
+    "bnb": {
+      "display_name": "BNB Chain",
+      "defillama_slug": "bsc",
+      "messari_slug": "binance-coin",
+      "blockworks_slug": "bnb",
+      "category": "smart_contract_chains"
+    },
+    "arbitrum": {
+      "display_name": "Arbitrum",
+      "defillama_slug": "arbitrum",
+      "messari_slug": "arbitrum",
+      "blockworks_slug": "arbitrum",
+      "category": "smart_contract_chains"
+    },
+    "tron": {
+      "display_name": "Tron",
+      "defillama_slug": "tron",
+      "messari_slug": "tron",
+      "blockworks_slug": "tron",
+      "category": "smart_contract_chains"
+    },
+    "base": {
+      "display_name": "Base",
+      "defillama_slug": "base",
+      "messari_slug": "base",
+      "blockworks_slug": "base",
+      "category": "smart_contract_chains"
+    },
+    "aave": {
+      "display_name": "Aave",
+      "defillama_slug": "aave",
+      "messari_slug": "aave",
+      "blockworks_slug": "aave",
+      "category": "borrow_lend_protocols"
+    },
+    "morpho": {
+      "display_name": "Morpho",
+      "defillama_slug": "morpho",
+      "messari_slug": "morpho-0",
+      "blockworks_slug": "morpho",
+      "category": "borrow_lend_protocols"
+    },
+    "compound-finance": {
+      "display_name": "Compound",
+      "defillama_slug": "compound-finance",
+      "messari_slug": "compound",
+      "category": "borrow_lend_protocols"
+    },
+    "kamino": {
+      "display_name": "Kamino",
+      "defillama_slug": "kamino",
+      "messari_slug": "kamino-finance",
+      "blockworks_slug": "kamino",
+      "category": "borrow_lend_protocols"
+    },
+    "maple-finance": {
+      "display_name": "Maple",
+      "defillama_slug": "maple-finance",
+      "messari_slug": "syrup",
+      "category": "borrow_lend_protocols"
+    },
+    "euler": {
+      "display_name": "Euler",
+      "defillama_slug": "euler",
+      "messari_slug": "euler",
+      "blockworks_slug": "euler",
+      "category": "borrow_lend_protocols"
+    },
+    "spark": {
+      "display_name": "Spark",
+      "defillama_slug": "spark",
+      "messari_slug": "spark-sky-protocol",
+      "blockworks_slug": "spark",
+      "category": "borrow_lend_protocols"
+    },
+    "lido": {
+      "display_name": "Lido",
+      "defillama_slug": "lido",
+      "messari_slug": "lido-dao",
+      "category": "liquid_staking"
+    },
+    "jito": {
+      "display_name": "Jito",
+      "defillama_slug": "jito",
+      "messari_slug": "jito-governance-token",
+      "category": "liquid_staking"
+    },
+    "rocket-pool": {
+      "display_name": "Rocket Pool",
+      "defillama_slug": "rocket-pool",
+      "messari_slug": "rocket-pool",
+      "category": "liquid_staking"
+    },
+    "sanctum": {
+      "display_name": "Sanctum",
+      "defillama_slug": "sanctum",
+      "messari_slug": "sanctum-2",
+      "category": "liquid_staking"
+    },
+    "ether-fi": {
+      "display_name": "EtherFi",
+      "defillama_slug": "ether.fi",
+      "messari_slug": "ether-fi",
+      "blockworks_slug": "ether-fi",
+      "category": "liquid_staking"
+    },
+    "marinade": {
+      "display_name": "Marinade",
+      "defillama_slug": "marinade",
+      "messari_slug": "marinade-finance",
+      "category": "liquid_staking"
+    },
+    "kinetiq": {
+      "display_name": "Kinetiq",
+      "defillama_slug": "kinetiq",
+      "messari_slug": null,
+      "category": "liquid_staking"
+    },
+    "collector-crypt": {
+      "display_name": "Collector Crypt",
+      "defillama_slug": "collector-crypt",
+      "messari_slug": "collector-crypt",
+      "blockworks_slug": "collector-crypt",
+      "category": "physical_tcg"
+    },
+    "courtyard": {
+      "display_name": "Courtyard",
+      "defillama_slug": "courtyard",
+      "messari_slug": null,
+      "category": "physical_tcg"
+    },
+    "beezie": {
+      "display_name": "Beezie",
+      "defillama_slug": "beezie",
+      "messari_slug": null,
+      "category": "physical_tcg"
+    },
+    "phygitals": {
+      "display_name": "Phygitals",
+      "defillama_slug": "phygitals",
+      "messari_slug": null,
+      "category": "physical_tcg"
+    },
+    "monster": {
+      "display_name": "Monster",
+      "defillama_slug": "monster",
+      "messari_slug": null,
+      "category": "physical_tcg"
+    },
+    "pull.fun": {
+      "display_name": "Pull.fun",
+      "defillama_slug": "pull.fun",
+      "messari_slug": null,
+      "category": "physical_tcg"
+    },
+    "dyli": {
+      "display_name": "DYLI",
+      "defillama_slug": "dyli",
+      "messari_slug": null,
+      "category": "physical_tcg"
+    },
+    "shiny": {
+      "display_name": "Shiny",
+      "defillama_slug": "shiny",
+      "messari_slug": null,
+      "category": "physical_tcg"
+    },
+    "yourgrails": {
+      "display_name": "YourGrails",
+      "defillama_slug": "yourgrails",
+      "messari_slug": null,
+      "category": "physical_tcg"
+    },
+    "chapool": {
+      "display_name": "Chapool",
+      "defillama_slug": "chapool",
+      "messari_slug": null,
+      "category": "physical_tcg"
+    },
+    "gemint": {
+      "display_name": "Gemint",
+      "defillama_slug": "gemint",
+      "messari_slug": null,
+      "category": "physical_tcg"
+    },
+    "pumpbox": {
+      "display_name": "PumpBox",
+      "defillama_slug": "pumpbox",
+      "messari_slug": null,
+      "category": "physical_tcg"
+    },
+    "uniswap": {
+      "display_name": "Uniswap",
+      "defillama_slug": "uniswap",
+      "messari_slug": "uniswap",
+      "blockworks_slug": "uniswap",
+      "category": "dexs"
+    },
+    "aerodrome": {
+      "display_name": "Aerodrome",
+      "defillama_slug": "aerodrome",
+      "messari_slug": "aerodrome-finance",
+      "blockworks_slug": "aerodrome",
+      "category": "dexs"
+    },
+    "orca": {
+      "display_name": "Orca",
+      "defillama_slug": "orca",
+      "messari_slug": "orca",
+      "blockworks_slug": "orca",
+      "category": "dexs"
+    },
+    "chainflip": {
+      "display_name": "Chainflip",
+      "defillama_slug": "chainflip",
+      "messari_slug": "chainflip",
+      "blockworks_slug": "chainflip",
+      "category": "dexs"
+    },
+    "project-x": {
+      "display_name": "Project X",
+      "defillama_slug": "project-x",
+      "messari_slug": null,
+      "category": "dexs"
+    },
+    "thorchain-dex": {
+      "display_name": "THORChain DEX",
+      "defillama_slug": "thorchain-dex",
+      "messari_slug": null,
+      "category": "dexs"
+    },
+    "up": {
+      "display_name": "up",
+      "defillama_slug": "up",
+      "messari_slug": null,
+      "category": "dexs"
+    },
+    "pharaoh-exchange": {
+      "display_name": "Pharaoh Exchange",
+      "defillama_slug": "pharaoh-exchange",
+      "messari_slug": null,
+      "category": "dexs"
+    },
+    "ring-protocol": {
+      "display_name": "Ring Protocol",
+      "defillama_slug": "ring-protocol",
+      "messari_slug": null,
+      "category": "dexs"
+    },
+    "dragon-swap": {
+      "display_name": "Saphyre",
+      "defillama_slug": "dragon-swap",
+      "messari_slug": null,
+      "category": "dexs"
+    },
+    "pulsex": {
+      "display_name": "PulseX",
+      "defillama_slug": "pulsex",
+      "messari_slug": null,
+      "category": "dexs"
+    },
+    "velodrome": {
+      "display_name": "Velodrome",
+      "defillama_slug": "velodrome",
+      "messari_slug": null,
+      "category": "dexs"
+    },
+    "nest": {
+      "display_name": "nest",
+      "defillama_slug": "nest",
+      "messari_slug": null,
+      "category": "dexs"
+    },
+    "metadao": {
+      "display_name": "MetaDao",
+      "defillama_slug": "metadao",
+      "messari_slug": null,
+      "blockworks_slug": "metadao",
+      "category": "dexs"
+    },
+    "ramses-exchange-hl": {
+      "display_name": "RamsesX",
+      "defillama_slug": "ramses-exchange-hl",
+      "messari_slug": null,
+      "category": "dexs"
+    },
+    "paycash": {
+      "display_name": "PayCash",
+      "defillama_slug": "paycash",
+      "messari_slug": null,
+      "category": "dexs"
+    },
+    "vvs-finance": {
+      "display_name": "VVS Finance",
+      "defillama_slug": "vvs-finance",
+      "messari_slug": "vvs-finance",
+      "blockworks_slug": "vvs-finance",
+      "category": "dexs"
+    },
+    "balancer": {
+      "display_name": "Balancer",
+      "defillama_slug": "balancer",
+      "messari_slug": null,
+      "blockworks_slug": "balancer",
+      "category": "dexs"
+    },
+    "aquarius-stellar": {
+      "display_name": "Aquarius Stellar",
+      "defillama_slug": "aquarius-stellar",
+      "messari_slug": null,
+      "category": "dexs"
+    },
+    "tokenlon": {
+      "display_name": "Tokenlon",
+      "defillama_slug": "tokenlon",
+      "messari_slug": "tokenlon",
+      "blockworks_slug": "tokenlon",
+      "category": "dexs"
+    },
+    "deepstate": {
+      "display_name": "Deepstate",
+      "defillama_slug": "deepstate",
+      "messari_slug": null,
+      "category": "dexs"
+    },
+    "hyperswap": {
+      "display_name": "HyperSwap",
+      "defillama_slug": "hyperswap",
+      "messari_slug": null,
+      "category": "dexs"
+    },
+    "humidifi": {
+      "display_name": "HumidiFi",
+      "defillama_slug": "humidifi",
+      "messari_slug": "humidifi",
+      "blockworks_slug": "humidifi",
+      "category": "dexs"
+    },
+    "fables": {
+      "display_name": "Fables",
+      "defillama_slug": "fables",
+      "messari_slug": null,
+      "category": "dexs"
+    },
+    "hydrex": {
+      "display_name": "Hydrex",
+      "defillama_slug": "hydrex",
+      "messari_slug": null,
+      "category": "dexs"
+    },
+    "quickswap": {
+      "display_name": "Quickswap",
+      "defillama_slug": "quickswap",
+      "messari_slug": null,
+      "blockworks_slug": "quickswap",
+      "category": "dexs"
+    },
+    "derive": {
+      "display_name": "Derive",
+      "defillama_slug": "derive",
+      "messari_slug": "derive",
+      "blockworks_slug": "derive",
+      "category": "options"
+    },
+    "circle": {
+      "display_name": "Circle",
+      "defillama_slug": "circle",
+      "messari_slug": null,
+      "blockworks_slug": "circle",
+      "category": "super_app"
+    },
+    "pump": {
+      "display_name": "Pump",
+      "defillama_slug": "pump",
+      "messari_slug": null,
+      "blockworks_slug": "pump",
+      "category": "super_app"
+    },
+    "raydium": {
+      "display_name": "Raydium",
+      "defillama_slug": "raydium",
+      "messari_slug": null,
+      "blockworks_slug": "raydium",
+      "category": "super_app"
+    },
+    "axiom": {
+      "display_name": "Axiom Pro",
+      "defillama_slug": "axiom",
+      "messari_slug": null,
+      "blockworks_slug": "axiom",
+      "category": "super_app"
+    },
+    "meteora": {
+      "display_name": "Meteora",
+      "defillama_slug": "meteora",
+      "messari_slug": null,
+      "blockworks_slug": "meteora",
+      "category": "super_app"
+    },
+    "fomo": {
+      "display_name": "fomo",
+      "defillama_slug": "fomo",
+      "messari_slug": null,
+      "blockworks_slug": "fomo",
+      "category": "super_app"
+    },
+    "maker": {
+      "display_name": "Sky",
+      "defillama_slug": "maker",
+      "messari_slug": null,
+      "blockworks_slug": "maker",
+      "category": "super_app"
+    },
+    "phantom": {
+      "display_name": "Phantom",
+      "defillama_slug": "phantom",
+      "messari_slug": null,
+      "blockworks_slug": "phantom",
+      "category": "super_app"
+    },
+    "pancakeswap": {
+      "display_name": "PancakeSwap",
+      "defillama_slug": "pancakeswap",
+      "messari_slug": null,
+      "blockworks_slug": "pancakeswap",
+      "category": "super_app"
+    },
+    "chainlink": {
+      "display_name": "Chainlink",
+      "defillama_slug": "chainlink",
+      "messari_slug": null,
+      "blockworks_slug": "chainlink",
+      "category": "super_app"
+    },
+    "bonkfun": {
+      "display_name": "BONK.fun",
+      "defillama_slug": "bonkfun",
+      "messari_slug": null,
+      "blockworks_slug": "bonkfun",
+      "category": "super_app"
+    },
+    "near-protocol": {
+      "display_name": "NEAR Protocol",
+      "defillama_slug": "near-protocol",
+      "messari_slug": null,
+      "category": "super_app"
+    },
+    "arbitrum-foundation": {
+      "display_name": "Arbitrum Foundation",
+      "defillama_slug": "arbitrum-foundation",
+      "messari_slug": null,
+      "category": "super_app"
+    },
+    "lista-dao": {
+      "display_name": "Lista DAO",
+      "defillama_slug": "lista-dao",
+      "messari_slug": null,
+      "blockworks_slug": "lista-dao",
+      "category": "super_app"
+    }
+  },
+  "equities": {
+    "COIN": {
+      "display_name": "Coinbase",
+      "ticker": "COIN",
+      "category": "crypto_equities"
+    },
+    "HOOD": {
+      "display_name": "Robinhood",
+      "ticker": "HOOD",
+      "category": "crypto_equities"
+    },
+    "CRCL": {
+      "display_name": "Circle",
+      "ticker": "CRCL",
+      "category": "crypto_equities"
+    },
+    "GEMI": {
+      "display_name": "Gemini",
+      "ticker": "GEMI",
+      "category": "crypto_equities"
+    },
+    "LVS": {
+      "display_name": "Las Vegas Sands",
+      "ticker": "LVS",
+      "category": "gambling_equities"
+    },
+    "DKNG": {
+      "display_name": "DraftKings",
+      "ticker": "DKNG",
+      "category": "gambling_equities"
+    },
+    "GOOGL": {
+      "display_name": "Alphabet",
+      "ticker": "GOOGL",
+      "category": "saas_equities"
+    },
+    "AAPL": {
+      "display_name": "Apple",
+      "ticker": "AAPL",
+      "category": "saas_equities"
+    },
+    "MSFT": {
+      "display_name": "Microsoft",
+      "ticker": "MSFT",
+      "category": "saas_equities"
+    },
+    "CME": {
+      "display_name": "CME Group",
+      "ticker": "CME",
+      "category": "traditional_exchanges"
+    },
+    "ICE": {
+      "display_name": "Intercontinental Exchange",
+      "ticker": "ICE",
+      "category": "traditional_exchanges"
+    },
+    "NDAQ": {
+      "display_name": "Nasdaq",
+      "ticker": "NDAQ",
+      "category": "traditional_exchanges"
+    },
+    "FNF": {
+      "display_name": "Fidelity",
+      "ticker": "FNF",
+      "category": "traditional_brokers"
+    },
+    "SCHW": {
+      "display_name": "Charles Schwab",
+      "ticker": "SCHW",
+      "category": "traditional_brokers"
+    },
+    "IBKR": {
+      "display_name": "Interactive Brokers",
+      "ticker": "IBKR",
+      "category": "traditional_brokers"
+    }
+  }
+}
